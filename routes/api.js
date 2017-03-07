@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const ZoneController = require('../controllers/ZoneController');
+const controllers = require('../controllers')
 /*
 router.get('/:resource', function(req, res, next){
     res.json({
@@ -13,9 +14,18 @@ router.get('/:resource', function(req, res, next){
 router.get('/:resource', function (req, res, next) {
 
     var resource = req.params.resource;
+    var controller = controllers[resource]
 
-    if (resource == 'zone') {
-        ZoneController.find(req.query, function (err, results) {
+    if (controller == null) {
+        res.json({
+            confirmation: 'fail',
+            message: 'Invalid resource request: ' + resource
+        })
+
+        return
+    }
+
+    controller.find(req.query, function (err, results) {
             if (err) {
                 res.json({
                     confirmation: 'fail',
@@ -28,8 +38,7 @@ router.get('/:resource', function (req, res, next) {
                 confirmation: 'success',
                 results: results
             })
-        })
-    }
+    })
 })
 
 
@@ -62,23 +71,31 @@ router.get('/:resource/:id',  function (req, res, next) {
 router.post('/:resource', function(req, res, next) {
     
     var resource = req.params.resource
-    
-    if (resource == 'zone') {
-        ZoneController.create(req.body, function(err, result) {
-            if(err) {
-                res.json({
-                    confirmation: 'not found',
-                    message: err
-                })
-                return
-            }
+    var controller = controllers[resource]
 
-            res.json({
-                confirmation: 'success',
-                result: result
-            })
+    if (controller == null) {
+        res.json({
+            confirmation: 'fail',
+            message: 'Invalid resource request: ' + resource
         })
+
+        return
     }
+    controller.create(req.body, function(err, result) {
+        if(err) {
+            res.json({
+                confirmation: 'not found',
+                message: err
+            })
+            return
+        }
+
+        res.json({
+            confirmation: 'success',
+            result: result
+        })
+    })
+
 })
 
 

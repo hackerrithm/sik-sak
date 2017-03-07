@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>Craete Comment</h1>
+    
+
+    <form action="api/comment" method="post">
+        <input type="text" name="username" placeholder="UserName" /><br>
+        <input type="text" name="body" placeholder="Comment" /><br>
+        <button type="submit" value="create Zone">Craete Comment</button>
+    </form>
+  </body>
+</html>
