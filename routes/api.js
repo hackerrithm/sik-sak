@@ -59,5 +59,27 @@ router.get('/:resource/:id',  function (req, res, next) {
     
 })
 
+router.post('/:resource', function(req, res, next) {
+    
+    var resource = req.params.resource
+    
+    if (resource == 'zone') {
+        ZoneController.create(req.body, function(err, result) {
+            if(err) {
+                res.json({
+                    confirmation: 'not found',
+                    message: err
+                })
+                return
+            }
+
+            res.json({
+                confirmation: 'success',
+                result: result
+            })
+        })
+    }
+})
+
 
 module.exports = router
