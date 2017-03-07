@@ -43,11 +43,24 @@ module.exports = {
         })
     },
 
-    update: function (params) {
+    update: function (id, params, callback) {
+
+        Zone.findByIdAndUpdate(id, params, {new:true}, function(err, zone){
+            if(err) {
+                callback(err, null)
+            }
+            callback(nul, zone)
+        })
         
     },
 
-    destroy: function (params) {
-        
+    destroy: function (id, callback) {
+        Zone.findByIdAndRemove(id, function(err) {
+            if(err) {
+                callback(err, null)
+                return
+            }
+            callback(null, null)
+        })
     },
 }
