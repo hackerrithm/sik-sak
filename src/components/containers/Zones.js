@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Zone from './Zone';
+import Zone from '../presentation/Zone';
 
 class Zones extends Component {
 
@@ -20,9 +20,9 @@ class Zones extends Component {
 
         const listItems = this.state.list.map((zone, i) => {
             return (
-                        <li>
-                            <Zone currentZone={zone} />                        
-                        </li>
+                <li key={i}>
+                    <Zone currentZone={zone} />                        
+                </li>
             )
         })
        

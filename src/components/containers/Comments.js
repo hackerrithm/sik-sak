@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import Comment from './Comment';
+import Comment from '../presentation/Comment';
 
 export default class Comments extends Component {
 
@@ -15,11 +15,17 @@ export default class Comments extends Component {
         };
     }
 
+    submitComment() {
+        console.log('Submit content');
+    }
+
     render() {
 
         const commentList = this.state.list.map((comment, i) => {
             return (
-                <li><Comment currentComment={comment} /></li>
+                <li key={i}>
+                    <Comment currentComment={comment} />
+                </li>
             )
         })
 
@@ -29,7 +35,16 @@ export default class Comments extends Component {
                 <ul>
                     {commentList}
                 </ul>
+                <br/>
+                <input type="text" placeholder="Username" />
+                <input type="text" placeholder="Comment" />
+                <div className="center">
+                    <button onClick={this.submitComment.bind(this)} className="btn btn-flat blue lighten-2 waves-ripple">Post</button>
+                </div>
             </div>
+          
+
+           
         );
     }
 }
