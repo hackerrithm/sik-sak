@@ -1,0 +1,83 @@
+var webpack = require('webpack')
+var path = require('path')
+
+module.exports = {
+   context: __dirname,
+   entry: path.resolve(__dirname,'/public/index'),
+   output: {
+       path: './dist',
+       filename: 'bundle.js'
+   },
+   modules: {
+       loaders: [
+           {
+               test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'es2015']
+                }
+           },
+           {
+               test: /\.css$/,
+               loader: 'style-loader!cssloader'
+           }
+       ]
+   } 
+   
+}
+
+/*
+ entry: {
+        app: './src/app.js'
+    },
+    output: {
+        filename: './public/build/bundle.js',
+        sourceMapFilename: './public/build/bundle.map'
+    },
+    devtool: '#soucemap',
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                exclude: /(node_modules)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['react', 'es2015']
+                }
+            }
+
+        ]
+    }
+*/
+
+const path = require('path');
+var webpack = require('webpack');
+
+module.exports = {
+  entry: './src/index.js',
+  devtool: 'source-map',
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
+  },
+  module: {
+    loaders: [
+      {
+        test: /.js$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader', // 'babel-loader' is also a valid name to reference
+        query: {
+          presets: ['react', 'es2015']
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!cssloader'
+      }
+    ]
+  }
+};
