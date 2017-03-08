@@ -21777,18 +21777,48 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Zones = function (_Component) {
     _inherits(Zones, _Component);
 
+    // Notes : never change state
+
     function Zones() {
         _classCallCheck(this, Zones);
 
         var _this = _possibleConstructorReturn(this, (Zones.__proto__ || Object.getPrototypeOf(Zones)).call(this));
 
         _this.state = {
-            list: [{ name: 'Zone 1', zipCode: '10012', numComments: 10 }, { name: 'Zone 2', zipCode: '10013', numComments: 20 }, { name: 'Zone 3', zipCode: '10014', numComments: 30 }, { name: 'Zone 4', zipCode: '10015', numComments: 40 }, { name: 'Zone 5', zipCode: '10016', numComments: 50 }]
+            zone: {
+                name: '',
+                zipCode: ''
+            },
+            list: []
         };
         return _this;
     }
 
     _createClass(Zones, [{
+        key: 'updateZone',
+        value: function updateZone(event) {
+            console.log('zone updated: ' + event.target.id + ' == ' + event.target.value);
+
+            var updatedZone = Object.assign({}, this.state.zone);
+            updatedZone[event.target.id] = event.target.value;
+
+            this.setState({
+                zone: updatedZone
+            });
+        }
+    }, {
+        key: 'addZone',
+        value: function addZone() {
+            console.log('Zone added: ' + JSON.stringify(this.state.zone));
+
+            var updatedList = Object.assign([], this.state.list);
+            updatedList.push(this.state.zone);
+
+            this.setState({
+                list: updatedList
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
 
@@ -21807,6 +21837,18 @@ var Zones = function (_Component) {
                     'ol',
                     null,
                     listItems
+                ),
+                _react2.default.createElement('br', null),
+                _react2.default.createElement('input', { id: 'name', onChange: this.updateZone.bind(this), type: 'text', placeholder: 'Name' }),
+                _react2.default.createElement('input', { id: 'zipCode', onChange: this.updateZone.bind(this), type: 'text', placeholder: 'Zip Code' }),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'center' },
+                    _react2.default.createElement(
+                        'button',
+                        { onClick: this.addZone.bind(this), className: 'btn red darken-2 waves-ripple' },
+                        'Submit'
+                    )
                 )
             );
         }
@@ -21920,13 +21962,20 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Comments = function (_Component) {
     _inherits(Comments, _Component);
 
+    // Notes : never change state
+
     function Comments(props) {
         _classCallCheck(this, Comments);
 
         var _this = _possibleConstructorReturn(this, (Comments.__proto__ || Object.getPrototypeOf(Comments)).call(this, props));
 
         _this.state = {
-            list: [{ body: 'Comment 1', username: 'KemoG', timestamp: '2:31' }, { body: 'Comment 2', username: 'KemoH', timestamp: '2:34' }, { body: 'Comment 3', username: 'KemoJ', timestamp: '2:45' }]
+            comment: {
+                username: '',
+                body: ''
+
+            },
+            list: []
         };
         return _this;
     }
@@ -21934,7 +21983,50 @@ var Comments = function (_Component) {
     _createClass(Comments, [{
         key: 'submitComment',
         value: function submitComment() {
-            console.log('Submit content');
+            console.log('Submit content' + JSON.stringify(this.state.comment));
+
+            var updatedList = Object.assign([], this.state.list);
+            updatedList.push(this.state.comment);
+
+            this.setState({
+                list: updatedList
+            });
+        }
+    }, {
+        key: 'updateUsername',
+        value: function updateUsername(event) {
+            console.log('Update username:' + event.target.value);
+
+            var updatedComment = Object.assign({}, this.state.comment);
+            updatedComment['username'] = event.target.value;
+
+            this.setState({
+                comment: updatedComment
+            });
+        }
+    }, {
+        key: 'updateComment',
+        value: function updateComment(event) {
+            console.log('Update comment:' + event.target.value);
+
+            var updatedComment = Object.assign({}, this.state.comment);
+            updatedComment['body'] = event.target.value;
+
+            this.setState({
+                comment: updatedComment
+            });
+        }
+    }, {
+        key: 'updateTimeStamp',
+        value: function updateTimeStamp(event) {
+            console.log('Update timeStamp' + event.target.value);
+
+            var updatedComment = Object.assign({}, this.state.comment);
+            updatedComment['timestamp'] = event.target.value;
+
+            this.setState({
+                comment: updatedComment
+            });
         }
     }, {
         key: 'render',
@@ -21958,8 +22050,9 @@ var Comments = function (_Component) {
                     commentList
                 ),
                 _react2.default.createElement('br', null),
-                _react2.default.createElement('input', { type: 'text', placeholder: 'Username' }),
-                _react2.default.createElement('input', { type: 'text', placeholder: 'Comment' }),
+                _react2.default.createElement('input', { onChange: this.updateUsername.bind(this), type: 'text', placeholder: 'Username' }),
+                _react2.default.createElement('input', { onChange: this.updateComment.bind(this), type: 'text', placeholder: 'Comment' }),
+                _react2.default.createElement('input', { onChange: this.updateTimeStamp.bind(this), type: 'text', placeholder: 'Time Stamp' }),
                 _react2.default.createElement(
                     'div',
                     { className: 'center' },
