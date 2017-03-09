@@ -8,8 +8,8 @@ class Zone extends Component {
         const zipCode = this.props.currentZone.zipCodes[0]
        
         return (
-                <div style={style.container}>
-                    <h2 style={style.header}><a style={style.title} href="#">{this.props.currentZone.name}</a></h2>
+                <div style={style.container} className="card hoverable">
+                    <h4 style={style.header}><a style={style.title} href="#">{this.props.currentZone.name}</a></h4>
                     <span>{zipCode}</span><br/>
                     <span>{this.props.currentZone.numComments}</span>
                 </div>

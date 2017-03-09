@@ -9641,20 +9641,16 @@ var Home = function (_Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'container' },
+                { className: 'row' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'row' },
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col m4' },
-                        _react2.default.createElement(_Zones2.default, null)
-                    ),
-                    _react2.default.createElement(
-                        'div',
-                        { className: 'col m8' },
-                        _react2.default.createElement(_Comments2.default, null)
-                    )
+                    { className: 'col m4 grey lighten-5' },
+                    _react2.default.createElement(_Zones2.default, null)
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col m8' },
+                    _react2.default.createElement(_Comments2.default, null)
                 )
             );
         }
@@ -9787,25 +9783,43 @@ var Comments = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                { className: 'card hoverable z-depth-2' },
-                'Comments',
-                _react2.default.createElement(
-                    'ul',
-                    null,
-                    commentList
-                ),
-                _react2.default.createElement('br', null),
-                _react2.default.createElement('input', { onChange: this.updateUsername.bind(this), type: 'text', placeholder: 'Username' }),
-                _react2.default.createElement('input', { onChange: this.updateComment.bind(this), type: 'text', placeholder: 'Comment' }),
-                _react2.default.createElement('input', { onChange: this.updateTimeStamp.bind(this), type: 'text', placeholder: 'Time Stamp' }),
+                { className: 'card' },
                 _react2.default.createElement(
                     'div',
-                    { className: 'center' },
+                    { className: 'card' },
                     _react2.default.createElement(
-                        'button',
-                        { onClick: this.submitComment.bind(this), className: 'btn btn-flat blue lighten-2 waves-ripple' },
-                        'Post'
+                        'div',
+                        { className: 'container center' },
+                        _react2.default.createElement('input', { onChange: this.updateUsername.bind(this), type: 'text', placeholder: 'Username' }),
+                        _react2.default.createElement('input', { onChange: this.updateComment.bind(this), type: 'text', placeholder: 'Comment' }),
+                        _react2.default.createElement('input', { onChange: this.updateTimeStamp.bind(this), type: 'text', placeholder: 'Time Stamp' }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'center' },
+                            _react2.default.createElement(
+                                'button',
+                                { onClick: this.submitComment.bind(this), className: 'btn btn-flat blue lighten-2 white-text waves-ripple' },
+                                'Post'
+                            )
+                        )
                     )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'card' },
+                    _react2.default.createElement(
+                        'h4',
+                        { className: 'center' },
+                        'Comments'
+                    ),
+                    _react2.default.createElement('hr', null),
+                    _react2.default.createElement(
+                        'ul',
+                        null,
+                        commentList
+                    ),
+                    _react2.default.createElement('br', null),
+                    _react2.default.createElement('hr', null)
                 )
             );
         }
@@ -9851,15 +9865,15 @@ var Comment = function (_Component) {
     }
 
     _createClass(Comment, [{
-        key: 'render',
+        key: "render",
         value: function render() {
             return _react2.default.createElement(
-                'div',
-                { style: { marginBottom: 15 } },
+                "div",
+                { style: { marginBottom: 15 }, className: "card" },
                 this.props.currentComment.body,
-                _react2.default.createElement('br', null),
+                _react2.default.createElement("br", null),
                 this.props.currentComment.username,
-                _react2.default.createElement('br', null),
+                _react2.default.createElement("br", null),
                 this.props.currentComment.timestamp
             );
         }
@@ -9916,9 +9930,9 @@ var Zone = function (_Component) {
 
             return _react2.default.createElement(
                 'div',
-                { style: style.container },
+                { style: style.container, className: 'card hoverable' },
                 _react2.default.createElement(
-                    'h2',
+                    'h4',
                     { style: style.header },
                     _react2.default.createElement(
                         'a',
@@ -9960,13 +9974,11 @@ exports.default = {
     universal: {},
     zone: {
         container: {
-            padding: 16,
-            background: '#f9f9f9',
-            marginTop: 12,
-            border: '1px solid #ddd'
+            //  padding:16,
+            background: '#f9f9f9'
         },
         header: {
-            marginBotton: 0
+            // marginBotton:0
         },
         title: {
             textDecoration: 'none',
@@ -24219,16 +24231,98 @@ var App = function (_Component) {
                 'div',
                 { className: 'App' },
                 _react2.default.createElement(
-                    'h2',
-                    null,
-                    'Sik-Sak'
+                    'nav',
+                    { className: 'nav-extended blue darken-2' },
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'nav-wrapper' },
+                        _react2.default.createElement(
+                            'a',
+                            { href: '#', className: 'brand-logo' },
+                            'Sik-Sak'
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { href: '#', 'data-activates': 'mobile-demo', className: 'button-collapse' },
+                            _react2.default.createElement(
+                                'i',
+                                { className: 'material-icons' },
+                                'menu'
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'ul',
+                            { id: 'nav-mobile', className: 'right hide-on-med-and-down' },
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: '#' },
+                                    'Login'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'ul',
+                            { className: 'side-nav', id: 'mobile-demo' },
+                            _react2.default.createElement(
+                                'li',
+                                null,
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: '#' },
+                                    'Login'
+                                )
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        'div',
+                        { className: 'nav-content' },
+                        _react2.default.createElement(
+                            'ul',
+                            { className: 'tabs tabs-transparent' },
+                            _react2.default.createElement(
+                                'li',
+                                { className: 'tab' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { className: 'active', href: '#test1' },
+                                    'Page 1'
+                                )
+                            ),
+                            _react2.default.createElement(
+                                'li',
+                                { className: 'tab' },
+                                _react2.default.createElement(
+                                    'a',
+                                    { href: '#test2' },
+                                    'Page 2'
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            'a',
+                            { className: 'btn-floating btn-large halfway-fab waves-effect waves-light blue lighten-2' },
+                            _react2.default.createElement(
+                                'i',
+                                { className: 'material-icons' },
+                                'add'
+                            )
+                        )
+                    )
                 ),
                 _react2.default.createElement(
-                    'p',
-                    null,
-                    'The Best App Ever'
+                    'div',
+                    { id: 'test1', className: 'col s12' },
+                    _react2.default.createElement(_Home2.default, null)
                 ),
-                _react2.default.createElement(_Home2.default, null)
+                _react2.default.createElement(
+                    'div',
+                    { id: 'test2', className: 'col s12' },
+                    'Test 2'
+                )
             );
         }
     }]);

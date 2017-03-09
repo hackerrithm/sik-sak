@@ -4,13 +4,13 @@ export default {
     },
     zone: {
             container: {
-            padding:16,
+          //  padding:16,
             background:'#f9f9f9',
-            marginTop: 12,
-            border: '1px solid #ddd'
+           // marginTop: 12,
+           // border: '1px solid #ddd'
         },
         header: {
-            marginBotton:0
+           // marginBotton:0
         },
         title: {
             textDecoration:'none',

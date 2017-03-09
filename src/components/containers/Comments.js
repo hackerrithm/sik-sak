@@ -72,20 +72,30 @@ export default class Comments extends Component {
         })
 
         return (
-            <div className="card hoverable z-depth-2">
-                Comments
-                <ul>
-                    {commentList}
-                </ul>
-                <br/>
-                <input onChange={this.updateUsername.bind(this)} type="text" placeholder="Username" />
-                <input onChange={this.updateComment.bind(this)} type="text" placeholder="Comment" />
-                <input onChange={this.updateTimeStamp.bind(this)} type="text" placeholder="Time Stamp" />
-                <div className="center">
-                    <button onClick={this.submitComment.bind(this)} className="btn btn-flat blue lighten-2 waves-ripple">Post</button>
+            <div className="card">
+                <div className="card">
+                    <div className="container center">
+                        <input onChange={this.updateUsername.bind(this)} type="text" placeholder="Username" />
+                        <input onChange={this.updateComment.bind(this)} type="text" placeholder="Comment" />
+                        <input onChange={this.updateTimeStamp.bind(this)} type="text" placeholder="Time Stamp" />
+                        <div className="center">
+                            <button onClick={this.submitComment.bind(this)} className="btn btn-flat blue lighten-2 white-text waves-ripple">Post</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div className="card">
+                    <h4 className="center">Comments</h4>
+                
+                
+                    <hr />
+                    <ul>
+                        {commentList}
+                    </ul>
+                    <br/>
+                    <hr />
                 </div>
             </div>
-          
 
            
         );

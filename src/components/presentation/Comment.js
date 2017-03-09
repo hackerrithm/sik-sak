@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 export default class Comment extends Component {
     render(){
         return(
-            <div style={{marginBottom:15}}>
+            <div style={{marginBottom:15}} className="card">
                 {this.props.currentComment.body}
                     <br/>
                 {this.props.currentComment.username}
