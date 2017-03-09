@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import Comment from '../presentation/Comment';
+import CreateComment from '../presentation/CreateComment';
 import superagent from 'superagent';
 import { APIManager } from '../../utils';
 
@@ -10,11 +11,11 @@ export default class Comments extends Component {
     constructor(props){
         super(props);
         this.state = {
-            comment: {
+            /*comment: {
                 username: '',
                 body: ''
         
-            },
+            },*/
             list: []
         };
     }
@@ -34,11 +35,12 @@ export default class Comments extends Component {
         })    
     }
 
-    submitComment() {
-        console.log('Submit content' + JSON.stringify(this.state.comment));
+   
+    submitComment(comment) {
+        console.log('Submit content' + JSON.stringify(comment));
 
-
-        APIManager.post('/api/comment', this.state.comment, (err, response) => {
+        let updatedComment = Object.assign({}, comment)
+        APIManager.post('/api/comment', updatedComment, (err, response) => {
             if (err) {
                alert('ERROR: ' + err.message)
                return     
@@ -53,13 +55,15 @@ export default class Comments extends Component {
             })
             
         })
+          
     }
-
+  
+/*
     updateUsername(event) {
         console.log('Update username:' + event.target.value)
 
         let updatedComment = Object.assign({}, this.state.comment)
-        updatedComment['username'] = event.target.value
+        updatedComment['Username'] = event.target.value
 
         this.setState({
             comment: updatedComment
@@ -77,7 +81,7 @@ export default class Comments extends Component {
         })
     }
 
-
+*/
     render() {
 
         const commentList = this.state.list.map((comment, i) => {
@@ -90,16 +94,7 @@ export default class Comments extends Component {
 
         return (
             <div className="card">
-                <div className="card">
-                    <div className="container center">
-                        <input onChange={this.updateUsername.bind(this)} type="text" placeholder="Username" />
-                        <input onChange={this.updateComment.bind(this)} type="text" placeholder="Comment" />
-                        <div className="center">
-                            <button onClick={this.submitComment.bind(this)} className="btn btn-flat blue lighten-2 white-text waves-ripple">Post</button>
-                        </div>
-                    </div>
-
-                </div>
+                 <CreateComment onCreate={this.submitComment.bind(this)} />
                 <div className="card">
                     <h4 className="center">Comments</h4>
                 

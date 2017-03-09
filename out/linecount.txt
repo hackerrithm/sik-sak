@@ -1,0 +1,74 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.6
+-------------------------------------------------------------------------------
+count time : 2017-03-09 09:19:29
+count workspace : c:\Users\gallo\reactive\sik-sak
+total files : 62
+total code lines : 23842
+total comment lines : 9191
+total blank lines : 5521
+
+.gitignore, code is 37, comment is 0, blank is 10.
+README.md, code is 14, comment is 0, blank is 4.
+app.js, code is 39, comment is 7, blank is 12.
+holder.txt, code is 55, comment is 24, blank is 5.
+package.json, code is 34, comment is 0, blank is 0.
+webpack.config.js, code is 24, comment is 1, blank is 1.
+bin\www, code is 47, comment is 24, blank is 19.
+controllers\CommentController.js, code is 48, comment is 0, blank is 9.
+controllers\ZoneController.js, code is 48, comment is 9, blank is 10.
+controllers\index.js, code is 6, comment is 0, blank is 1.
+models\Comment.js, code is 7, comment is 0, blank is 3.
+models\Zone.js, code is 7, comment is 0, blank is 3.
+routes\api.js, code is 72, comment is 8, blank is 22.
+routes\index.js, code is 12, comment is 1, blank is 5.
+routes\users.js, code is 6, comment is 1, blank is 2.
+src\app.js, code is 40, comment is 0, blank is 4.
+views\createcomment.hjs, code is 15, comment is 0, blank is 2.
+views\createzone.hjs, code is 15, comment is 0, blank is 2.
+views\error.hjs, code is 3, comment is 0, blank is 0.
+views\index.hjs, code is 21, comment is 0, blank is 3.
+public\build\bundle.js, code is 13581, comment is 8078, blank is 3466.
+public\build\bundle.js.map, code is 1, comment is 0, blank is 0.
+public\materialize\LICENSE, code is 17, comment is 0, blank is 4.
+public\materialize\README.md, code is 39, comment is 4, blank is 10.
+public\stylesheets\style.css, code is 0, comment is 0, blank is 0.
+public\materialize\css\materialize.css, code is 6810, comment is 427, blank is 1345.
+src\utils\index.js, code is 4, comment is 0, blank is 2.
+public\materialize\js\materialize.min.js, code is 1, comment is 9, blank is 0.
+public\materialize\js\materialize.js, code is 2496, comment is 563, blank is 482.
+src\components\containers\Comments.js, code is 92, comment is 1, blank is 28.
+src\components\containers\Zones.js, code is 77, comment is 7, blank is 23.
+src\components\layout\Home.js, code is 17, comment is 0, blank is 5.
+src\components\containers\styles.js, code is 15, comment is 4, blank is 3.
+src\components\layout\styles.js, code is 15, comment is 4, blank is 3.
+src\components\presentation\Comment.js, code is 14, comment is 0, blank is 2.
+src\components\presentation\Zone.js, code is 16, comment is 0, blank is 6.
+src\components\presentation\CreateComment.js, code is 11, comment is 0, blank is 3.
+src\components\presentation\index.js, code is 8, comment is 0, blank is 2.
+src\components\presentation\styles.js, code is 15, comment is 4, blank is 3.
+public\materialize\fonts\roboto\Roboto-Bold.ttf, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Bold.eot, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Bold.woff, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Bold.woff2, it is a binary file.
+public\materialize\css\materialize.min.css, code is 3, comment is 15, blank is 0.
+public\materialize\fonts\roboto\Roboto-Light.eot, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Medium.eot, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Light.woff2, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Medium.ttf, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Medium.woff, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Regular.eot, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Light.ttf, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Regular.ttf, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Regular.woff, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Thin.eot, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Regular.woff2, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Thin.ttf, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Thin.woff, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Medium.woff2, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Light.woff, it is a binary file.
+public\materialize\fonts\roboto\Roboto-Thin.woff2, it is a binary file.
+src\utils\APIManager.js, code is 45, comment is 0, blank is 15.
+.gitattributes, code is 15, comment is 0, blank is 2.
+===============================================================================

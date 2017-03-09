@@ -1,0 +1,409 @@
+{
+    "extension": "linecount",
+    "version": "0.1.6",
+    "workspace": "c:\\Users\\gallo\\reactive\\sik-sak",
+    "linecount": [
+        {
+            "version": "0.1.6",
+            "counttime": "2017-03-09 09:19:27",
+            "filesum": 62,
+            "codesum": 23842,
+            "commentsum": 9191,
+            "blanksum": 5521,
+            "filelist": [
+                {
+                    "blank": 10,
+                    "code": 37,
+                    "comment": 0,
+                    "filename": ".gitignore"
+                },
+                {
+                    "blank": 4,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "README.md"
+                },
+                {
+                    "blank": 12,
+                    "code": 39,
+                    "comment": 7,
+                    "filename": "app.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 55,
+                    "comment": 24,
+                    "filename": "holder.txt"
+                },
+                {
+                    "blank": 0,
+                    "code": 34,
+                    "comment": 0,
+                    "filename": "package.json"
+                },
+                {
+                    "blank": 1,
+                    "code": 24,
+                    "comment": 1,
+                    "filename": "webpack.config.js"
+                },
+                {
+                    "blank": 19,
+                    "code": 47,
+                    "comment": 24,
+                    "filename": "bin\\www"
+                },
+                {
+                    "blank": 9,
+                    "code": 48,
+                    "comment": 0,
+                    "filename": "controllers\\CommentController.js"
+                },
+                {
+                    "blank": 10,
+                    "code": 48,
+                    "comment": 9,
+                    "filename": "controllers\\ZoneController.js"
+                },
+                {
+                    "blank": 1,
+                    "code": 6,
+                    "comment": 0,
+                    "filename": "controllers\\index.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "models\\Comment.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 7,
+                    "comment": 0,
+                    "filename": "models\\Zone.js"
+                },
+                {
+                    "blank": 22,
+                    "code": 72,
+                    "comment": 8,
+                    "filename": "routes\\api.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 12,
+                    "comment": 1,
+                    "filename": "routes\\index.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 6,
+                    "comment": 1,
+                    "filename": "routes\\users.js"
+                },
+                {
+                    "blank": 4,
+                    "code": 40,
+                    "comment": 0,
+                    "filename": "src\\app.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "views\\createcomment.hjs"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": "views\\createzone.hjs"
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 0,
+                    "filename": "views\\error.hjs"
+                },
+                {
+                    "blank": 3,
+                    "code": 21,
+                    "comment": 0,
+                    "filename": "views\\index.hjs"
+                },
+                {
+                    "blank": 3466,
+                    "code": 13581,
+                    "comment": 8078,
+                    "filename": "public\\build\\bundle.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 0,
+                    "filename": "public\\build\\bundle.js.map"
+                },
+                {
+                    "blank": 4,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "public\\materialize\\LICENSE"
+                },
+                {
+                    "blank": 10,
+                    "code": 39,
+                    "comment": 4,
+                    "filename": "public\\materialize\\README.md"
+                },
+                {
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0,
+                    "filename": "public\\stylesheets\\style.css"
+                },
+                {
+                    "blank": 1345,
+                    "code": 6810,
+                    "comment": 427,
+                    "filename": "public\\materialize\\css\\materialize.css"
+                },
+                {
+                    "blank": 2,
+                    "code": 4,
+                    "comment": 0,
+                    "filename": "src\\utils\\index.js"
+                },
+                {
+                    "blank": 0,
+                    "code": 1,
+                    "comment": 9,
+                    "filename": "public\\materialize\\js\\materialize.min.js"
+                },
+                {
+                    "blank": 482,
+                    "code": 2496,
+                    "comment": 563,
+                    "filename": "public\\materialize\\js\\materialize.js"
+                },
+                {
+                    "blank": 28,
+                    "code": 92,
+                    "comment": 1,
+                    "filename": "src\\components\\containers\\Comments.js"
+                },
+                {
+                    "blank": 23,
+                    "code": 77,
+                    "comment": 7,
+                    "filename": "src\\components\\containers\\Zones.js"
+                },
+                {
+                    "blank": 5,
+                    "code": 17,
+                    "comment": 0,
+                    "filename": "src\\components\\layout\\Home.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 4,
+                    "filename": "src\\components\\containers\\styles.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 4,
+                    "filename": "src\\components\\layout\\styles.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 14,
+                    "comment": 0,
+                    "filename": "src\\components\\presentation\\Comment.js"
+                },
+                {
+                    "blank": 6,
+                    "code": 16,
+                    "comment": 0,
+                    "filename": "src\\components\\presentation\\Zone.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 11,
+                    "comment": 0,
+                    "filename": "src\\components\\presentation\\CreateComment.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 8,
+                    "comment": 0,
+                    "filename": "src\\components\\presentation\\index.js"
+                },
+                {
+                    "blank": 3,
+                    "code": 15,
+                    "comment": 4,
+                    "filename": "src\\components\\presentation\\styles.js"
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Bold.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Bold.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Bold.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Bold.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 0,
+                    "code": 3,
+                    "comment": 15,
+                    "filename": "public\\materialize\\css\\materialize.min.css"
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Light.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Medium.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Light.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Medium.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Medium.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Regular.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Light.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Regular.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Regular.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Thin.eot",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Regular.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Thin.ttf",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Thin.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Medium.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Light.woff",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "filename": "public\\materialize\\fonts\\roboto\\Roboto-Thin.woff2",
+                    "isbinaryfile": true,
+                    "blank": 0,
+                    "code": 0,
+                    "comment": 0
+                },
+                {
+                    "blank": 15,
+                    "code": 45,
+                    "comment": 0,
+                    "filename": "src\\utils\\APIManager.js"
+                },
+                {
+                    "blank": 2,
+                    "code": 15,
+                    "comment": 0,
+                    "filename": ".gitattributes"
+                }
+            ]
+        }
+    ]
+}
