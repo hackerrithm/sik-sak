@@ -6770,6 +6770,8 @@ var _superagent = __webpack_require__(185);
 
 var _superagent2 = _interopRequireDefault(_superagent);
 
+var _utils = __webpack_require__(193);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -6804,19 +6806,18 @@ var Zones = function (_Component) {
             var _this2 = this;
 
             console.log("componentDidMount");
-            _superagent2.default.get('api/zone').query(null).set('Accept', 'application/json').end(function (err, response) {
+
+            _utils.APIManager.get('/api/zone', null, function (err, response) {
 
                 if (err) {
-                    alert('ERROR: ' + err);
-                } else {
-                    console.log(JSON.stringify(response.body));
-
-                    var results = response.body.results;
-
-                    _this2.setState({
-                        list: results
-                    });
+                    alert('ERROR: ' + err.message);
+                    return;
                 }
+
+                console.log('Results: ' + JSON.stringify(response.results));
+                _this2.setState({
+                    list: response.results
+                });
             });
         }
     }, {
@@ -6834,14 +6835,33 @@ var Zones = function (_Component) {
     }, {
         key: 'addZone',
         value: function addZone() {
+            var _this3 = this;
+
             console.log('Zone added: ' + JSON.stringify(this.state.zone));
 
-            var updatedList = Object.assign([], this.state.list);
-            updatedList.push(this.state.zone);
+            var updatedZone = Object.assign({}, this.state.zone);
+            updatedZone['zipCodes'] = updatedZone.zipCode.split(',');
 
-            this.setState({
-                list: updatedList
+            _utils.APIManager.post('/api/zone', updatedZone, function (err, response) {
+                if (err) {
+                    alert('ERROR: ' + err.message);
+                    return;
+                }
+
+                console.log('Zone created: ' + JSON.stringify(response));
+
+                var updatedList = Object.assign([], _this3.state.list);
+                updatedList.push(response.result);
+                _this3.setState({
+                    list: updatedList
+                });
             });
+
+            /*let updatedList = Object.assign([], this.state.list)
+            updatedList.push(this.state.zone)
+              this.setState({
+                list: updatedList
+            })*/
         }
     }, {
         key: 'render',
@@ -9692,6 +9712,12 @@ var _Comment = __webpack_require__(85);
 
 var _Comment2 = _interopRequireDefault(_Comment);
 
+var _superagent = __webpack_require__(185);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+var _utils = __webpack_require__(193);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -9722,15 +9748,43 @@ var Comments = function (_Component) {
     }
 
     _createClass(Comments, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            _utils.APIManager.get('/api/comment', null, function (err, response) {
+
+                if (err) {
+                    alert('ERROR: ' + err.message);
+                    return;
+                }
+
+                console.log('Results: ' + JSON.stringify(response.results));
+                _this2.setState({
+                    list: response.results
+                });
+            });
+        }
+    }, {
         key: 'submitComment',
         value: function submitComment() {
+            var _this3 = this;
+
             console.log('Submit content' + JSON.stringify(this.state.comment));
 
-            var updatedList = Object.assign([], this.state.list);
-            updatedList.push(this.state.comment);
+            _utils.APIManager.post('/api/comment', this.state.comment, function (err, response) {
+                if (err) {
+                    alert('ERROR: ' + err.message);
+                    return;
+                }
 
-            this.setState({
-                list: updatedList
+                console.log('Comment created: ' + JSON.stringify(response));
+
+                var updatedList = Object.assign([], _this3.state.list);
+                updatedList.push(response.result);
+                _this3.setState({
+                    list: updatedList
+                });
             });
         }
     }, {
@@ -9752,18 +9806,6 @@ var Comments = function (_Component) {
 
             var updatedComment = Object.assign({}, this.state.comment);
             updatedComment['body'] = event.target.value;
-
-            this.setState({
-                comment: updatedComment
-            });
-        }
-    }, {
-        key: 'updateTimeStamp',
-        value: function updateTimeStamp(event) {
-            console.log('Update timeStamp' + event.target.value);
-
-            var updatedComment = Object.assign({}, this.state.comment);
-            updatedComment['timestamp'] = event.target.value;
 
             this.setState({
                 comment: updatedComment
@@ -9792,7 +9834,6 @@ var Comments = function (_Component) {
                         { className: 'container center' },
                         _react2.default.createElement('input', { onChange: this.updateUsername.bind(this), type: 'text', placeholder: 'Username' }),
                         _react2.default.createElement('input', { onChange: this.updateComment.bind(this), type: 'text', placeholder: 'Comment' }),
-                        _react2.default.createElement('input', { onChange: this.updateTimeStamp.bind(this), type: 'text', placeholder: 'Time Stamp' }),
                         _react2.default.createElement(
                             'div',
                             { className: 'center' },
@@ -24331,6 +24372,88 @@ var App = function (_Component) {
 }(_react.Component);
 
 _reactDom2.default.render(_react2.default.createElement(App, null), document.getElementById('root'));
+
+/***/ }),
+/* 192 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _superagent = __webpack_require__(185);
+
+var _superagent2 = _interopRequireDefault(_superagent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = {
+
+    get: function get(url, params, callback) {
+        _superagent2.default.get(url).query(params).set('Accept', 'appliacation/json').end(function (err, response) {
+            if (err) {
+                callback(err, null);
+                alert('ERROR: ' + err);
+                return;
+            }
+
+            var confirmation = response.body.confirmation;
+
+            if (confirmation != 'success') {
+                callback({ message: response.body.message }, null);
+                return;
+            }
+            callback(null, response.body);
+        });
+    },
+
+    post: function post(url, body, callback) {
+        _superagent2.default.post(url).send(body).set('Accept', 'application/json').end(function (err, response) {
+
+            if (err) {
+                callback(err, null);
+                alert('ERROR: ' + err);
+                return;
+            }
+
+            var confirmation = response.body.confirmation;
+
+            if (confirmation != 'success') {
+                callback({ message: response.body.message }, null);
+                return;
+            }
+            callback(null, response.body);
+        });
+    },
+
+    put: function put() {},
+
+    delete: function _delete() {}
+
+};
+
+/***/ }),
+/* 193 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.APIManager = undefined;
+
+var _APIManager = __webpack_require__(192);
+
+var _APIManager2 = _interopRequireDefault(_APIManager);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.APIManager = _APIManager2.default;
 
 /***/ })
 /******/ ]);

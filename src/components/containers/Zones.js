@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Zone from '../presentation/Zone';
 import superagent from 'superagent';
-
+import { APIManager } from '../../utils';
 class Zones extends Component {
 
     // Notes : never change state
@@ -20,24 +20,20 @@ class Zones extends Component {
 
     componentDidMount() {
         console.log("componentDidMount")
-        superagent
-            .get('api/zone')
-            .query(null)
-            .set('Accept', 'application/json')
-            .end((err, response) => {
 
-                if (err) {
-                    alert('ERROR: '+ err)
-                } else {
-                    console.log(JSON.stringify(response.body))
+        APIManager.get('/api/zone', null, (err, response) => {
 
-                    let results = response.body.results
+             if (err) {
+                    alert('ERROR: '+ err.message)
+                    return
+            } 
 
-                    this.setState({
-                        list: results
-                    })
-                }
+            console.log('Results: ' + JSON.stringify(response.results))
+            this.setState({
+                list: response.results
             })
+        })        
+
     }
 
     updateZone(event) {
@@ -53,13 +49,31 @@ class Zones extends Component {
 
     addZone() {
         console.log('Zone added: ' + JSON.stringify(this.state.zone))
+        
+        let updatedZone = Object.assign({}, this.state.zone)
+        updatedZone['zipCodes'] = updatedZone.zipCode.split(',')
 
-        let updatedList = Object.assign([], this.state.list)
+        APIManager.post('/api/zone', updatedZone, (err, response) => {
+            if (err) {
+               alert('ERROR: ' + err.message)
+               return     
+            } 
+
+            console.log('Zone created: ' + JSON.stringify(response))
+
+            let updatedList = Object.assign([], this.state.list)
+            updatedList.push(response.result)
+            this.setState({
+                list: updatedList
+            })
+        })
+
+        /*let updatedList = Object.assign([], this.state.list)
         updatedList.push(this.state.zone)
 
         this.setState({
             list: updatedList
-        })
+        })*/
     }
     render() {
 
