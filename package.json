@@ -16,7 +16,8 @@
     "morgan": "~1.7.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "serve-favicon": "~2.3.0"
+    "serve-favicon": "~2.3.0",
+    "superagent": "^3.5.0"
   },
   "devDependencies": {
     "babel-cli": "^6.23.0",
